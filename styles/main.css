@@ -1,0 +1,97 @@
+* {
+  margin: 0;
+  padding: 5px;
+  box-sizing: border-box;
+}
+
+
+
+body {
+  background-color: #f9f9f9;
+  font-family: Rubik, sans-serif;
+  text-align: center;
+  margin: 30px;
+}
+
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  background-color: #bbb;
+  border-radius: 4px;
+  color: #fff;
+  margin: 0 auto;
+  max-width: 85%;
+  padding: 10px;
+ 
+}
+
+.mazeGrid{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    height: 250px;
+    width: 250px;
+    margin: 30px auto;
+    border: 2px solid #000;
+}
+
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+button {
+  color: black;
+  cursor: pointer;
+  width: 25%;
+  padding: 10px;
+  border-radius: 20px;
+  margin-top: 10px;
+}
+
+input {
+  border-radius: 5px;
+  width: 10ch;
+  direction: rtl;
+}
+
+.input-base{
+  display: flex;
+}
+
+button:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #413c3c;
+}
+
+
+
+p {
+  color: #333;
+  font-size: smaller;
+  padding-bottom: 5px;
+  padding-top: 4px;
+}
+
+.separator {
+  text-align: center;
+}
+
+.disclaimer, .author {
+  font-size: small;
+}
+
+@media all and (max-width:650px) {
+
+  .input-base{
+    display: flex;
+    flex-direction: column;
+  }
+
+}
