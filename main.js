@@ -49,54 +49,45 @@ function printMaze2( maze ) {
 
 // new maze
 
-map2 = [
-  [1,1,0,0,0,0,0,0],
-  [0,1,1,0,0,0,0,0],
-  [1,1,1,0,0,0,0,0],
-  [1,0,1,1,1,1,1,1],
-  [1,1,0,0,1,0,0,1],
-  [0,1,1,0,1,0,0,1],
-  [1,1,1,0,1,0,0,1],
-  [1,0,0,0,1,1,'e',1]];
+
 
  map =
-[ [ '0', '0', 'x', 'x', 'x', 'x', 'x' ],
-  [ 'x', '0', '0', 'x', 'x', '0', 'x' ],
+[ [ '0', '0', '0', 'x', 'x', 'x', 'x' ],
+  [ '0', '0', 'x', 'x', 'x', '0', 'x' ],
+  [ '0', '0', '0', '0', '0', '0', 'x' ],
+  [ 'z', '0', '0', '0', '0', '0', 'x' ],
   [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', 'x', 'x', 'x', 'x', 'e', 'x' ] ];
+  [ 'x', '0', '0', '0', '0', '0', 'e' ],
+  [ 'x', 'x', 'x', 'x', 'x', 'x', 'x' ] ];
   
   /// x = no pass
   //  * = path passed
   //  0 = free
   //  e = exit
-console.log( printMaze2( map ) );
-
-console.log(map)
 
 
 function findpath(x,y){
   res = false;
   if( valid(map,x,y) ){
-    if ( map[x][y] != 'x' ||  map[x][y] != '*') {
+    if ( map[x][y] != 'x' &&  map[x][y] != '*') {
       
       if (map[x][y] == 'e'){
         console.log('Reached exit at: ' + x + ',' + y);
         showPosition(x,y);
+        map[x][y]= '*'; 
         return true; 
       }
       
       console.log('I am at: ' + x + ',' + y);
       map[x][y]= '*'; 
  
-      if ( findpath(x+1,y) || findpath(x,y+1) || findpath(x,y-1) ||findpath(x-1,y) ){
+       if ( findpath(x+1,y) || findpath(x,y+1) || findpath(x,y-1) ||findpath(x-1,y) ){
         return true; 
+       
       }
       
     }
-    
+        
   }
   console.log(printMaze2(map))
   return res ;
@@ -114,20 +105,20 @@ function valid(map,x,y) {
 
 
 function startMaze() {
+  
   findpath(0, 0);
-
-  //resetMaze();
+  resetMaze();
 }
 
 function resetMaze(){
    map =
-[ [ '0', '0', 'x', 'x', 'x', 'x', 'x' ],
-  [ 'x', '0', '0', 'x', 'x', '0', 'x' ],
-  [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', '0', '0', '0', '0', '0', 'x' ],
-  [ 'x', 'x', 'x', 'x', 'x', 'e', 'x' ] ];
+  [ [ '0', '0', 'x', 'x', 'x', 'x', 'x' ],
+    [ 'x', '0', '0', 'x', 'x', '0', 'x' ],
+    [ 'x', '0', '0', '0', '0', '0', 'x' ],
+    [ 'x', '0', '0', '0', '0', '0', 'x' ],
+    [ 'x', '0', '0', '0', '0', '0', 'x' ],
+    [ 'x', '0', '0', '0', '0', '0', 'x' ],
+    [ 'x', 'x', 'x', 'x', 'x', 'e', 'x' ] ];
 }
 
 
