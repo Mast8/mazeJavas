@@ -81,6 +81,7 @@ function findpath(x,y){
   res = false;
   if( valid(map,x,y) ){
     if ( map[x][y] != 'x' ||  map[x][y] != '*') {
+      
       if (map[x][y] == 'e'){
         console.log('Reached exit at: ' + x + ',' + y);
         showPosition(x,y);
@@ -95,8 +96,9 @@ function findpath(x,y){
       }
       
     }
+    
   }
-
+  console.log(printMaze2(map))
   return res ;
 }
 
@@ -113,7 +115,8 @@ function valid(map,x,y) {
 
 function startMaze() {
   findpath(0, 0);
-  resetMaze();
+
+  //resetMaze();
 }
 
 function resetMaze(){
