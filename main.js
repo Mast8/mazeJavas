@@ -67,6 +67,8 @@ function printMaze2( maze ) {
 
 
 function findpath(x,y){
+  const symbols = ['x','0','e'];
+  map = generateSymbolsMatrix(5, 5, symbols);
   res = false;
   if( valid(map,x,y) ){
     if ( map[x][y] != 'x' &&  map[x][y] != '*') {
@@ -85,6 +87,7 @@ function findpath(x,y){
         return true; 
        
       }
+      else  console.log('No exit: ' + x + ',' + y);
       
     }
         
@@ -102,6 +105,7 @@ function valid(map,x,y) {
   if(x >= 0 && x < (map.length) && y >= 0 && y < (map[0].length)) return true;
 }
 
+let scoreElement = document.getElementById("score");
 
 
 function startMaze() {
@@ -122,3 +126,28 @@ function resetMaze(){
 }
 
 
+function generateSymbolsMatrix(rows, cols, symbolSet) {
+  const matrix = [];
+  for (let i = 0; i < rows; i++) {
+    const row = [];
+    for (let j = 0; j < cols; j++) {
+      const randomIndex = Math.floor(Math.random() * symbolSet.length);
+      row.push(symbolSet[randomIndex]);
+    }
+    
+    matrix.push(row);
+  }
+  return matrix;
+}
+
+// Example usage:
+const symbols = ['x','0','e'];
+const numRows = 5;
+const numCols = 5;
+
+const symbolMatrix = generateSymbolsMatrix(numRows, numCols, symbols);
+
+// To display the matrix (optional)
+for (let i = 0; i < symbolMatrix.length; i++) {
+  console.log(symbolMatrix[i].join(' '));
+}
