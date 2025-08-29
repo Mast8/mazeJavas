@@ -66,6 +66,15 @@ class BinarySearchTree {
       }
     }
   }
+
+  prints(){
+    if (!this.root) return null;
+    
+    console.log(this.root)
+
+    
+  }
+  
 }
 
 
@@ -86,5 +95,5 @@ binarySearchTree.find(20);
 binarySearchTree.find(123); //returns `undefined`
 binarySearchTree.contains(6); //returns `true`
 binarySearchTree.contains(123); //returns `false`
-
+binarySearchTree.prints();
 console.log(binarySearchTree);
