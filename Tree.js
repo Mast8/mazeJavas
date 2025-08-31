@@ -74,6 +74,22 @@ class BinarySearchTree {
 
     
   }
+
+  bfs() {
+    if (!this.root) return [];
+    const queue = [this.root];
+    const result = [];
+
+    while (queue.length > 0) {
+      let current = queue.shift();
+      result.push(current.value);
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+    }
+    console.log("BFS Traversal:", result);
+  }
+
+
   
 }
 
@@ -97,3 +113,4 @@ binarySearchTree.contains(6); //returns `true`
 binarySearchTree.contains(123); //returns `false`
 binarySearchTree.prints();
 console.log(binarySearchTree);
+binarySearchTree.bfs();
