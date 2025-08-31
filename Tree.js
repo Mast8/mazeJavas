@@ -89,6 +89,20 @@ class BinarySearchTree {
     console.log("BFS Traversal:", result);
   }
 
+  order() {
+    if (!this.root) return [];
+    const queue = [this.root];
+    const result = [];
+
+    while (queue.length > 0) {
+      let current = queue.shift();
+      result.push(current.value);
+      if (current.right) queue.push(current.right);
+      if (current.left) queue.push(current.left);
+    }
+    console.log("BFS node are:", result);
+  }
+
 
   
 }
@@ -99,13 +113,13 @@ class BinarySearchTree {
 //EXAMPLES==================================================================================
 
 const binarySearchTree = new BinarySearchTree();
-binarySearchTree.insert(10); //returns the entire list
+binarySearchTree.insert(2); //returns the entire list
 binarySearchTree.insert(6); //returns the entire list
-binarySearchTree.insert(2);
+binarySearchTree.insert(12);
 binarySearchTree.insert(20);
 binarySearchTree.insert(34);
 binarySearchTree.insert(69);
-binarySearchTree.insert(4);
+binarySearchTree.insert(100);
 binarySearchTree.find(4); //returns `Node {value: 2, right: Node, left: null}`
 binarySearchTree.find(20);
 binarySearchTree.find(123); //returns `undefined`
@@ -113,4 +127,6 @@ binarySearchTree.contains(6); //returns `true`
 binarySearchTree.contains(123); //returns `false`
 binarySearchTree.prints();
 console.log(binarySearchTree);
+
 binarySearchTree.bfs();
+binarySearchTree.order();
